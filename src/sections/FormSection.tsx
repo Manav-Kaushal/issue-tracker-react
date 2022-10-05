@@ -5,6 +5,8 @@ import { v4 as uuidv4 } from "uuid";
 import toast from "react-hot-toast";
 import { setLocalStorageValue } from "../utils/lib";
 import Button from "../components/Button";
+import { severityLevels, SeverityLevelsValuesEnum } from "../utils/mocks";
+import { SeverityLevel } from "../interfaces/SeverityLevel";
 
 type Props = {};
 
@@ -54,7 +56,7 @@ const FormSection = (props: Props) => {
   return (
     <div className="p-6 space-x-2 bg-white rounded-md dark:bg-slate-800">
       <form onSubmit={handleSubmission}>
-        <p className="text-lg font-semibold">Add an issue:</p>
+        <p className="mb-2 text-lg font-semibold">Add an issue:</p>
         <div className="grid items-center grid-cols-3 py-6 border-t dark:border-gray-600">
           <label htmlFor="title" className="font-semibold">
             Title <span className="text-red-500">*</span>
@@ -91,11 +93,7 @@ const FormSection = (props: Props) => {
             Severity Level <span className="text-red-500">*</span>
           </label>
           <div className="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
-            {[
-              { value: "low", title: "Low" },
-              { value: "medium", title: "Medium" },
-              { value: "high", title: "High" },
-            ].map((severityLevel) => (
+            {severityLevels.map((severityLevel: SeverityLevel) => (
               <div key={severityLevel.value} className="flex items-center">
                 <input
                   id={severityLevel.value}
@@ -103,7 +101,9 @@ const FormSection = (props: Props) => {
                   type="radio"
                   value={severityLevel.value}
                   onChange={handleFormChange}
-                  defaultChecked={severityLevel.value === "low"}
+                  defaultChecked={
+                    severityLevel.value === SeverityLevelsValuesEnum.Low
+                  }
                   className="w-4 h-4 text-indigo-600 border-slate-300 focus:ring-indigo-500"
                   required
                 />
