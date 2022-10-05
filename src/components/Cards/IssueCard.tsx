@@ -1,6 +1,6 @@
-import { Issue } from "@interfaces/Issue";
 import React from "react";
 import { HiOutlineInformationCircle } from "react-icons/hi";
+import { Issue } from "../../interfaces/Issue";
 
 type Props = {
   issue: Issue;
@@ -8,7 +8,7 @@ type Props = {
 
 const IssueCard = ({ issue }: Props) => {
   return (
-    <div className="p-4 flex flex-col bg-red-500 rounded-md">
+    <div className="flex flex-col p-4 bg-red-500 rounded-md">
       <p className="font-semibold">Unique ID: {issue.id}</p>
       <span className="tag inline-flex items-center px-2 py-0.5 rounded text-xs transition-200 font-medium bg-yellow-200 text-yellow-800 w-fit">
         Open
