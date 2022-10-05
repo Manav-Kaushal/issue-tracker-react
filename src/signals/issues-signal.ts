@@ -1,7 +1,6 @@
 import { signal } from "@preact/signals-react";
 import { Issue } from "../interfaces/Issue";
-import { getLocalStorageValue } from "../utils/lib";
 
-const issues = signal<Issue[]>(getLocalStorageValue("issues"));
+const issues = signal<Issue[]>([]);
 
 export { issues };

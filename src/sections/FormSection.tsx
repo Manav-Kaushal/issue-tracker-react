@@ -5,8 +5,11 @@ import { v4 as uuidv4 } from "uuid";
 import toast from "react-hot-toast";
 import { setLocalStorageValue } from "../utils/lib";
 import Button from "../components/Button";
-import { severityLevels, SeverityLevelsValuesEnum } from "../utils/mocks";
+import { severityLevels } from "../utils/mocks";
 import { SeverityLevel } from "../interfaces/SeverityLevel";
+import { SeverityLevelsValuesEnum } from "../interfaces/enums/SeverityLevels";
+import { globalState } from "../signals/global-signal";
+import { Global } from "../interfaces/enums/Global";
 
 type Props = {};
 
@@ -32,7 +35,12 @@ const handleFormChange = (e: any) => {
 const addIssue = () => {
   let id = uuidv4().split("-").join("");
   issues.value = [...issues.value, { id, isClosed: false, ...formState.value }];
+  globalState.value = {
+    ...globalState.value,
+    totalIssuesCreated: globalState.value.totalIssuesCreated + 1,
+  };
   setLocalStorageValue("issues", issues.value);
+  setLocalStorageValue(Global.GlobalOptions, globalState.value);
 };
 
 const handleSubmission = (e?: any) => {
@@ -99,7 +107,6 @@ const FormSection = (props: Props) => {
                   id={severityLevel.value}
                   name="severity"
                   type="radio"
-                  value={severityLevel.value}
                   onChange={handleFormChange}
                   defaultChecked={
                     severityLevel.value === SeverityLevelsValuesEnum.Low

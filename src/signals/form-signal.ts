@@ -6,10 +6,6 @@ const INITIAL_FORMSTATE = {
   severity: "",
 };
 
-const formState = signal({
-  title: "",
-  description: "",
-  severity: "",
-});
+const formState = signal(INITIAL_FORMSTATE);
 
 export { INITIAL_FORMSTATE, formState };

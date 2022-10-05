@@ -48,7 +48,7 @@ const IssueCard = ({ issue }: Props) => {
       className={classNames(
         "flex flex-col p-4 rounded-md",
         !issue.isClosed
-          ? "text-slate-800 dark:text-slate-200 bg-slate-200 dark:bg-slate-800"
+          ? "text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-800"
           : "text-slate-800 dark:text-slate-200 bg-emerald-100 dark:bg-emerald-800"
       )}
     >

@@ -1,5 +1,8 @@
 import React from "react";
+import { Global } from "../../interfaces/enums/Global";
 import { globalState } from "../../signals/global-signal";
+import { setLocalStorageValue } from "../../utils/lib";
+import Button from "../Button";
 
 type Props = {};
 
@@ -8,6 +11,8 @@ const toggleShowStats = () => {
     ...globalState.value,
     showStats: !globalState.value.showStats,
   };
+  console.log(globalState.value);
+  setLocalStorageValue(Global.GlobalOptions, globalState.value);
 };
 
 const Header: React.FC = (props: Props) => {
@@ -19,11 +24,10 @@ const Header: React.FC = (props: Props) => {
             <a href="/">Issue Tracker</a>
           </h2>
         </div>
-        <div>
-          <label className="switch">
-            <input type="checkbox" onClick={toggleShowStats} />
-            <span className="slider round" />
-          </label>
+        <div className="space-x-2">
+          <Button onClick={() => toggleShowStats()}>
+            {globalState.value.showStats === true ? "Hide" : "Show"} Stats
+          </Button>
         </div>
       </div>
     </header>

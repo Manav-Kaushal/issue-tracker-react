@@ -1,15 +1,8 @@
+import {
+  SeverityLevelsLabelsEnum,
+  SeverityLevelsValuesEnum,
+} from "../interfaces/enums/SeverityLevels";
 import { SeverityLevel } from "../interfaces/SeverityLevel";
-
-export enum SeverityLevelsValuesEnum {
-  Low = "low",
-  Medium = "medium",
-  High = "high",
-}
-enum SeverityLevelsLabelsEnum {
-  Low = "Low",
-  Medium = "Medium",
-  High = "High",
-}
 
 export const severityLevels: SeverityLevel[] = [
   {
