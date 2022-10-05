@@ -4,6 +4,7 @@ import "./index.css";
 import "./styles/tailwind.css";
 import App from "./App";
 import Layout from "./components/Layout";
+import { Toaster } from "react-hot-toast";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -11,6 +12,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <Layout>
+    <Toaster />
     <App />
   </Layout>
 );
