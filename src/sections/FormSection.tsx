@@ -10,7 +10,7 @@ import { SeverityLevel } from "../interfaces/SeverityLevel";
 import { SeverityLevelsValuesEnum } from "../interfaces/enums/SeverityLevels";
 import { globalState } from "../signals/global-signal";
 import { Global } from "../interfaces/enums/Global";
-import { batch, computed } from "@preact/signals-react";
+import { batch } from "@preact/signals-react";
 
 type Props = {};
 

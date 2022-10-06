@@ -1,4 +1,3 @@
-import React from "react";
 import IssueCard from "../components/Cards/IssueCard";
 import Empty from "../components/Empty";
 import { Issue } from "../interfaces/Issue";
