@@ -7,6 +7,7 @@ import { Global } from "./interfaces/enums/Global";
 import IssuesDisplaySection from "./sections/IssuesDisplaySection";
 import Helmet from "react-helmet";
 import { issues } from "./signals/issues-signal";
+import Footer from "./components/Footer";
 
 function App() {
   useEffect(() => {
@@ -36,6 +37,7 @@ function App() {
         <div className="py-5 pl-4 space-y-4 font-light select-none rounded-br-md ">
           <FormSection />
           {globalState.value.showStats === true && <StatsSection />}
+          <Footer />
         </div>
         <div className="text-base w-full p-6 space-y-2 max-h-[85vh] overflow-y-scroll h-full">
           <IssuesDisplaySection />

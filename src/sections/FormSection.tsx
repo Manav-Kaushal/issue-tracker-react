@@ -71,7 +71,7 @@ const FormSection = (props: Props) => {
     <div className="p-6 space-x-2 bg-white rounded-md dark:bg-slate-800">
       <form onSubmit={handleSubmission}>
         <p className="mb-2 text-lg font-semibold">Add an issue:</p>
-        <div className="grid items-center grid-cols-3 py-6 border-t dark:border-gray-600">
+        <div className="grid items-start grid-cols-3 py-6 border-t dark:border-gray-600">
           <label htmlFor="title" className="font-semibold">
             Title <span className="text-red-500">*</span>
           </label>
@@ -87,7 +87,7 @@ const FormSection = (props: Props) => {
             required
           />
         </div>
-        <div className="grid items-center grid-cols-3 py-6 border-y dark:border-gray-600">
+        <div className="grid items-start grid-cols-3 py-6 border-y dark:border-gray-600">
           <label htmlFor="description" className="font-semibold">
             Description
           </label>
@@ -102,7 +102,7 @@ const FormSection = (props: Props) => {
             autoComplete="off"
           />
         </div>
-        <div className="grid items-center grid-cols-3 py-6 border-b dark:border-gray-600">
+        <div className="grid items-start grid-cols-3 py-6 border-b dark:border-gray-600">
           <label htmlFor="severity" className="font-semibold">
             Severity Level <span className="text-red-500">*</span>
           </label>

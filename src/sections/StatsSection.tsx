@@ -1,12 +1,18 @@
 import StatCard from "../components/Cards/StatCard";
 import { globalState } from "../signals/global-signal";
 import { issues } from "../signals/issues-signal";
+import { motion } from "framer-motion";
 
 type Props = {};
 
 const StatsSection = (props: Props) => {
   return (
-    <div className="p-6 bg-white rounded-md dark:bg-slate-800">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, repeatType: "mirror" }}
+      className="py-3 px-6 bg-white rounded-md dark:bg-slate-800"
+    >
       <div className="grid grid-cols-4 gap-4">
         <StatCard sx="hover:bg-red-100 dark:hover:bg-red-800">
           <h4>Total issues created:</h4>
@@ -29,7 +35,7 @@ const StatsSection = (props: Props) => {
           </p>
         </StatCard>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

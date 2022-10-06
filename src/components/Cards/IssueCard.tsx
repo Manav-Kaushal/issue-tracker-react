@@ -56,8 +56,10 @@ function deleteIssue(id: string) {
 const IssueCard = ({ issue }: Props) => {
   return (
     <motion.div
-      initial={{ x: 500, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
+      initial={{ x: 200, opacity: 0 }}
+      whileInView={{ x: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
       className={classNames(
         "flex flex-col p-4 rounded-md",
         !issue.isClosed
