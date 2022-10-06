@@ -10,6 +10,7 @@ import { SeverityLevel } from "../interfaces/SeverityLevel";
 import { SeverityLevelsValuesEnum } from "../interfaces/enums/SeverityLevels";
 import { globalState } from "../signals/global-signal";
 import { Global } from "../interfaces/enums/Global";
+import { batch, computed } from "@preact/signals-react";
 
 type Props = {};
 
@@ -34,11 +35,16 @@ const handleFormChange = (e: any) => {
 
 const addIssue = () => {
   let id = uuidv4().split("-").join("");
-  issues.value = [...issues.value, { id, isClosed: false, ...formState.value }];
-  globalState.value = {
-    ...globalState.value,
-    totalIssuesCreated: globalState.value.totalIssuesCreated + 1,
-  };
+  batch(() => {
+    issues.value = [
+      { id, isClosed: false, ...formState.value },
+      ...issues.value,
+    ];
+    globalState.value = {
+      ...globalState.value,
+      totalIssuesCreated: globalState.value.totalIssuesCreated + 1,
+    };
+  });
   setLocalStorageValue("issues", issues.value);
   setLocalStorageValue(Global.GlobalOptions, globalState.value);
 };
@@ -107,6 +113,7 @@ const FormSection = (props: Props) => {
                   id={severityLevel.value}
                   name="severity"
                   type="radio"
+                  value={formState.value.severity}
                   onChange={handleFormChange}
                   defaultChecked={
                     severityLevel.value === SeverityLevelsValuesEnum.Low

@@ -9,6 +9,10 @@ import { setLocalStorageValue } from "../../utils/lib";
 import Button from "../Button";
 import { toast } from "react-hot-toast";
 import classNames from "classnames";
+import { batch } from "@preact/signals-react";
+import { globalState } from "../../signals/global-signal";
+import { Global } from "../../interfaces/enums/Global";
+import { motion } from "framer-motion";
 
 type Props = {
   issue: Issue;
@@ -33,8 +37,15 @@ function updateIssue(incomingIssue: Issue) {
 
 function deleteIssue(id: string) {
   if (!!issues.value.length) {
-    issues.value = issues.value.filter((issue: Issue) => issue.id !== id);
+    batch(() => {
+      issues.value = issues.value.filter((issue: Issue) => issue.id !== id);
+      globalState.value = {
+        ...globalState.value,
+        totalIssuesClosed: globalState.value.totalIssuesClosed + 1,
+      };
+    });
     setLocalStorageValue("issues", issues.value);
+    setLocalStorageValue(Global.GlobalOptions, globalState.value);
     toast.success("Issue removed!");
   } else {
     toast.success("Issue could not be removed!");
@@ -44,7 +55,9 @@ function deleteIssue(id: string) {
 
 const IssueCard = ({ issue }: Props) => {
   return (
-    <div
+    <motion.div
+      initial={{ x: 500, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
       className={classNames(
         "flex flex-col p-4 rounded-md",
         !issue.isClosed
@@ -94,7 +107,7 @@ const IssueCard = ({ issue }: Props) => {
           Delete
         </Button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

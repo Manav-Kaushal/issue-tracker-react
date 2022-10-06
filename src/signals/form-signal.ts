@@ -3,7 +3,7 @@ import { signal } from "@preact/signals-react";
 const INITIAL_FORMSTATE = {
   title: "",
   description: "",
-  severity: "",
+  severity: "low",
 };
 
 const formState = signal(INITIAL_FORMSTATE);
