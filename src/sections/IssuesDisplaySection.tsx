@@ -18,6 +18,7 @@ const IssuesDisplaySection = (props: Props) => {
               transition: {
                 when: "beforeChildren",
                 staggerChildren: 0.3,
+                type: "tween",
               },
             },
           }}

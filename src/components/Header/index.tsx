@@ -11,7 +11,14 @@ const toggleShowStats = () => {
     ...globalState.value,
     showStats: !globalState.value.showStats,
   };
-  console.log(globalState.value);
+  setLocalStorageValue(Global.GlobalOptions, globalState.value);
+};
+
+const switchTheme = () => {
+  globalState.value = {
+    ...globalState.value,
+    theme: globalState.value.theme === "light" ? "dark" : "light",
+  };
   setLocalStorageValue(Global.GlobalOptions, globalState.value);
 };
 
@@ -24,7 +31,10 @@ const Header: React.FC = (props: Props) => {
             <a href="/">Issue Tracker</a>
           </h2>
         </div>
-        <div className="space-x-2">
+        <div className="flex items-center space-x-2">
+          <Button onClick={() => switchTheme()}>
+            {globalState.value.theme === "light" ? "Dark" : "Light"} Mode
+          </Button>
           <Button onClick={() => toggleShowStats()}>
             {globalState.value.showStats === true ? "Hide" : "Show"} Stats
           </Button>

@@ -8,6 +8,7 @@ import IssuesDisplaySection from "./sections/IssuesDisplaySection";
 import Helmet from "react-helmet";
 import { issues } from "./signals/issues-signal";
 import Footer from "./components/Footer";
+import classNames from "classnames";
 
 function App() {
   useEffect(() => {
@@ -33,8 +34,12 @@ function App() {
       <Helmet>
         <title>Issue Tracker - React</title>
       </Helmet>
-      <div className="grid min-h-[calc(100vh-70px)] grid-col-1 md:grid-cols-2">
-        <div className="py-6 pl-4 space-y-4 font-light select-none rounded-br-md ">
+      <div
+        className={classNames(
+          "grid min-h-[calc(100vh-70px)] grid-col-1 md:grid-cols-2"
+        )}
+      >
+        <div className="py-6 pl-4 space-y-4 font-light select-none rounded-br-md">
           <FormSection />
           {globalState.value.showStats === true && <StatsSection />}
           <Footer />

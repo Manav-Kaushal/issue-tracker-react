@@ -5,6 +5,7 @@ const INITIAL_GLOBALSTATE = {
   showStats: false,
   totalIssuesCreated: 0,
   totalIssuesClosed: 0,
+  theme: "light",
 };
 
 const globalState = signal<GlobalState>(INITIAL_GLOBALSTATE);
