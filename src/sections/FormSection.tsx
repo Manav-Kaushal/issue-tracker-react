@@ -81,7 +81,7 @@ const FormSection = (props: Props) => {
             name="title"
             value={formState.value.title}
             onChange={handleFormChange}
-            className="block w-full col-span-2 p-2 mx-auto text-sm font-medium border rounded-lg bg-slate-50 border-slate-300 text-slate-900 focus:ring-1 focus:ring-purple-500 focus:border-purple-500 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 transition-200 focus:outline-none "
+            className="block w-full col-span-2 p-2 mx-auto text-sm font-medium border rounded-lg bg-slate-50 border-slate-300 text-slate-900 focus:ring-1 focus:ring-slate-500 focus:border-slate-500 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-500 dark:focus:border-slate-500 transition-200 focus:outline-none "
             placeholder="Type an issue"
             autoComplete="off"
             required
@@ -97,7 +97,7 @@ const FormSection = (props: Props) => {
             rows={3}
             value={formState.value.description}
             onChange={handleFormChange}
-            className="block w-full col-span-2 p-2 mx-auto text-sm font-medium border rounded-lg bg-slate-50 border-slate-300 text-slate-900 focus:ring-1 focus:ring-purple-500 focus:border-purple-500 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 transition-200 focus:outline-none"
+            className="block w-full col-span-2 p-2 mx-auto text-sm font-medium border rounded-lg bg-slate-50 border-slate-300 text-slate-900 focus:ring-1 focus:ring-slate-500 focus:border-slate-500 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-500 dark:focus:border-slate-500 transition-200 focus:outline-none"
             placeholder="Give a brief description about the issue."
             autoComplete="off"
           />
@@ -118,7 +118,7 @@ const FormSection = (props: Props) => {
                   defaultChecked={
                     severityLevel.value === SeverityLevelsValuesEnum.Low
                   }
-                  className="w-4 h-4 text-indigo-600 border-slate-300 focus:ring-indigo-500"
+                  className="w-4 h-4 text-slate-600 border-slate-300 focus:ring-slate-500"
                   required
                 />
                 <label
