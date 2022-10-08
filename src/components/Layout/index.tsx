@@ -1,8 +1,6 @@
-import { ReactNode, useEffect } from "react";
+import { ReactNode } from "react";
 import Header from "../Header";
 import classes from "classnames";
-import { getLocalStorageValue } from "../../utils/lib";
-import { Global } from "../../interfaces/enums/Global";
 import { globalState } from "../../signals/global-signal";
 import { effect } from "@preact/signals-react";
 

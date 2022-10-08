@@ -1,5 +1,5 @@
 import Lottie from "react-lottie";
-import animationData from "../../lotties/empty.json";
+import animationData from "../../lottie/empty.json";
 
 type Props = {
   width?: number;
@@ -21,7 +21,7 @@ const Empty = ({ width = 400, height = 400, message = "" }: Props) => {
     <div className="text-center">
       <Lottie options={defaultOptions} width={width} height={height} />
       {!!message.length && (
-        <p className="text-lg text-slate-800 dark:text-slate-200 font-medium">
+        <p className="text-lg font-medium text-slate-800 dark:text-slate-200">
           {message}
         </p>
       )}
