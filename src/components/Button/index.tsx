@@ -5,12 +5,13 @@ type Props = {
   variant?: "sky" | "yellow" | "red" | "green" | "disabled" | "auth";
   disabled?: boolean;
   htmlType?: "button" | "submit" | "reset";
+  size?: "sm" | "md" | "lg";
   onClick?: () => void;
   children: ReactNode;
 };
 
 const getBaseClasses = () => {
-  return "w-fit inline-block flex items-center font-semibold px-3 py-1.5 rounded-md cursor-pointer transition-200";
+  return "w-fit inline-block flex items-center font-semibold rounded-md cursor-pointer transition-200";
 };
 
 const getVariant = (variant: string) => {
@@ -30,12 +31,26 @@ const getVariant = (variant: string) => {
   }
 };
 
+const getSize = (size: string) => {
+  switch (size) {
+    case "sm":
+      return "px-2.5 py-1 text-sm";
+    case "md":
+      return "px-3 py-1.5 text-base";
+    case "lg":
+      return "px-3.5 py-2 text-lg";
+    default:
+      break;
+  }
+};
+
 const Button = (props: Props) => {
   const {
     variant = "sky",
     disabled = false,
     onClick = () => {},
     htmlType = "button",
+    size = "md",
     children,
   } = props;
 
@@ -44,6 +59,7 @@ const Button = (props: Props) => {
       type={htmlType}
       className={classes(
         getBaseClasses(),
+        getSize(size),
         getVariant(!!disabled ? "disabled" : variant)
       )}
       onClick={onClick}
