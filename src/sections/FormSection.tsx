@@ -5,12 +5,12 @@ import { v4 as uuidv4 } from "uuid";
 import toast from "react-hot-toast";
 import { setLocalStorageValue } from "../utils/lib";
 import Button from "../components/Button";
-import { severityLevels } from "../utils/mocks";
 import { SeverityLevel } from "../interfaces/SeverityLevel";
 import { SeverityLevelsValuesEnum } from "../interfaces/enums/SeverityLevels";
 import { globalState } from "../signals/global-signal";
 import { Global } from "../interfaces/enums/Global";
 import { batch } from "@preact/signals-react";
+import { severityLevels } from "../utils/mocks";
 
 type Props = {};
 

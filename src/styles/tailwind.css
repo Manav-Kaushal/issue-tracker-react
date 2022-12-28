@@ -5,3 +5,7 @@
 .transition-200 {
   @apply transition duration-200 ease-in-out;
 }
+
+.transition-300 {
+  @apply transition duration-300 ease-in-out;
+}
