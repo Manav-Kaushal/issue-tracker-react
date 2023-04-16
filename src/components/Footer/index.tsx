@@ -6,47 +6,29 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { appConfig } from "../../utils/config";
 
 type Props = {};
 
 const socials = [
   {
-    name: "facebook",
-    link: "https://facebook.com",
-    icon: (
-      <FaFacebookF className="w-4 h-4 text-slate-800 dark:text-slate-100" />
-    ),
-  },
-  {
     name: "linkedIn",
-    link: "https://linkedin.com",
+    link: appConfig.profile.social.linkedIn,
     icon: (
       <FaLinkedinIn className="w-4 h-4 text-slate-800 dark:text-slate-100" />
     ),
   },
   {
     name: "github",
-    link: "https://github.com",
+    link: appConfig.profile.social.github,
     icon: <FaGithub className="w-4 h-4 text-slate-800 dark:text-slate-100" />,
-  },
-  {
-    name: "instagram",
-    link: "https://instagram.com",
-    icon: (
-      <FaInstagram className="w-4 h-4 text-slate-800 dark:text-slate-100" />
-    ),
-  },
-  {
-    name: "twitter",
-    link: "https://twitter.com",
-    icon: <FaTwitter className="w-4 h-4 text-slate-800 dark:text-slate-100" />,
   },
 ];
 
 const Footer = (props: Props) => {
   return (
     <footer className="px-6 py-2 bg-white rounded-md dark:bg-slate-800">
-      <div className="flex items-center justify-between font-medium space-x-2">
+      <div className="flex items-center justify-between space-x-2 font-medium">
         <div>Developed By: Manav kaushal</div>
 
         <motion.div
@@ -75,7 +57,7 @@ const Footer = (props: Props) => {
               target="_blank"
               rel="noreferrer"
             >
-              <div className="bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 p-2 hover:bg-gray-300 dark:hover:bg-gray-400 transition-200 dark:bg-gray-500">
+              <div className="p-2 bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 hover:bg-gray-300 dark:hover:bg-gray-400 transition-200 dark:bg-gray-500">
                 {social.icon}
               </div>
             </motion.a>

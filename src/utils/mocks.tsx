@@ -4,12 +4,7 @@ import {
 } from "../interfaces/enums/SeverityLevels";
 import { SeverityLevel } from "../interfaces/SeverityLevel";
 import { FaReact } from "react-icons/fa";
-import {
-  SiFramer,
-  SiStyledcomponents,
-  SiTailwindcss,
-  SiTypescript,
-} from "react-icons/si";
+import { SiFramer, SiTailwindcss, SiTypescript } from "react-icons/si";
 import { TechData } from "../interfaces/TechStack";
 
 export const severityLevels: SeverityLevel[] = [

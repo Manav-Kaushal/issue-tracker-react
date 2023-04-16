@@ -21,7 +21,7 @@ const Home = (props: Props) => {
       >
         <div className="py-6 pl-4 space-y-4 font-light select-none rounded-br-md">
           <FormSection />
-          {globalState.value.showStats === true && <StatsSection />}
+          {globalState.value.showStats && <StatsSection />}
           <Footer />
         </div>
         <div className="text-base w-full py-6 px-4 max-h-[85vh] overflow-y-scroll h-full">
