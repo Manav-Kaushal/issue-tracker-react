@@ -1,44 +1,13 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import { useMemo } from "react";
 import { TechData } from "../../interfaces/TechStack";
-
-const StyledLink = styled(Link)<{ bgColor: string }>`
-  transition: all 0.3s ease-in-out;
-
-  .badgeOuter {
-    background: none;
-    transition: all 0.3s ease-in-out;
-  }
-  &:hover {
-    .badgeOuter {
-      background-color: ${({ bgColor }) =>
-        !bgColor.includes("gradient") ? bgColor : null};
-      background-image: ${({ bgColor }) =>
-        bgColor.includes("gradient") ? bgColor : null};
-    }
-  }
-`;
 
 type Props = { tech: TechData };
 
 const TechCard = ({ tech }: Props) => {
-  const { title, icon, description, bgColor, version } = tech;
-  const gradient = useMemo(() => {
-    if (bgColor.includes("gradient")) {
-      return bgColor;
-    } else {
-      return "";
-    }
-  }, [bgColor]);
+  const { title, icon, description, version } = tech;
 
   return (
     <>
-      <StyledLink
-        bgColor={!!gradient.length ? gradient : bgColor}
-        className="relative block p-4 border border-gray-100 shadow-xl group rounded-xl dark:border-none dark:shadow-lg dark:bg-slate-800"
-        to=""
-      >
+      <div className="relative block p-4 border border-gray-100 shadow-xl group rounded-xl dark:border-none dark:shadow-lg dark:bg-slate-800">
         <span className="absolute right-4 top-4 rounded-full bg-green-100 px-3 py-1.5 text-xs font-medium text-green-600 dark:bg-slate-900 dark:text-slate-400">
           {version}
         </span>
@@ -58,7 +27,7 @@ const TechCard = ({ tech }: Props) => {
             <p className="hidden mt-2 text-sm sm:block">{description}</p>
           )}
         </div>
-      </StyledLink>
+      </div>
     </>
   );
 };

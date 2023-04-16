@@ -6,10 +6,6 @@ import toast from "react-hot-toast";
 import { setLocalStorageValue } from "../utils/lib";
 import Button from "../components/Button";
 import { SeverityLevel } from "../interfaces/SeverityLevel";
-import {
-  SeverityLevelsLabelsEnum,
-  SeverityLevelsValuesEnum,
-} from "../interfaces/enums/SeverityLevels";
 import { globalState } from "../signals/global-signal";
 import { Global } from "../interfaces/enums/Global";
 import { batch } from "@preact/signals-react";

@@ -165,12 +165,12 @@ const IssueCard = ({ issue }: Props) => {
                   </div>
 
                   <div className="flex items-center justify-end mt-4 space-x-2">
-                    <Button onClick={toggleModal}>Close</Button>
+                    <Button onClick={toggleModal}>Cancel</Button>
                     <Button
                       onClick={() => deleteIssue(issue.id || "")}
                       variant="red"
                     >
-                      OK
+                      Proceed
                     </Button>
                   </div>
                 </Dialog.Panel>
