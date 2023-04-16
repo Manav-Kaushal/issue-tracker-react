@@ -6,7 +6,10 @@ import toast from "react-hot-toast";
 import { setLocalStorageValue } from "../utils/lib";
 import Button from "../components/Button";
 import { SeverityLevel } from "../interfaces/SeverityLevel";
-import { SeverityLevelsValuesEnum } from "../interfaces/enums/SeverityLevels";
+import {
+  SeverityLevelsLabelsEnum,
+  SeverityLevelsValuesEnum,
+} from "../interfaces/enums/SeverityLevels";
 import { globalState } from "../signals/global-signal";
 import { Global } from "../interfaces/enums/Global";
 import { batch } from "@preact/signals-react";
@@ -113,10 +116,10 @@ const FormSection = (props: Props) => {
                   id={severityLevel.value}
                   name="severity"
                   type="radio"
-                  value={formState.value.severity}
+                  value={severityLevel.value}
                   onChange={handleFormChange}
                   defaultChecked={
-                    severityLevel.value === SeverityLevelsValuesEnum.Low
+                    formState.value.severity === severityLevel.value
                   }
                   className="w-4 h-4 text-slate-600 border-slate-300 focus:ring-slate-500"
                   required
